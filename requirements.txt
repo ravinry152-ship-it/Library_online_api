@@ -1,0 +1,23 @@
+
+Django>=5.0,<6.0
+djangorestframework>=3.15.0,<3.16.0
+djangorestframework-simplejwt>=5.3.0,<5.4.0
+
+dj-database-url>=2.1.0,<2.2.0
+python-dotenv>=1.0.0,<1.1.0
+psycopg2-binary>=2.9.0,<3.0.0
+
+django-allauth[socialaccount]==0.61.1
+dj-rest-auth>=6.0.0
+django-cors-headers>=4.3.0,<5.0.0
+
+Pillow>=10.0.0,<11.0.0
+
+gunicorn
+whitenoise>=6.6.0
+
+django-supabase-storage>=0.1.2
+django-storages[boto3]>=1.14
+cloudinary==1.41.0
+
+# pip install -r requirements.txt

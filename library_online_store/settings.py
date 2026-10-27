@@ -1,6 +1,7 @@
 """
 Django settings for library_online_store project.
 """
+import os
 from pathlib import Path
 from datetime import timedelta
 import os
@@ -59,6 +60,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -206,7 +208,11 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# បន្ថែមការកំណត់នេះដើម្បីឱ្យ WhiteNoise រក្សាទុក Static files បានល្អ
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_HOST = "smtp.gmail.com"

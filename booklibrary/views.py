@@ -93,6 +93,19 @@ class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     callback_url = "http://127.0.0.1:8000/accounts/google/login/callback/" 
     client_class = OAuth2Client
+    def post(self, request, *args, **kwargs):
+        # ហៅដំណើរការដើមរបស់ SocialLoginView ដើម្បី authenticate ឬ create user
+        response = super().post(request, *args, **kwargs)
+        
+        # បើ login ជោគជ័យ សារប្តូរ response ឱ្យចេញមកជា JWT access និង refresh token
+        if self.user:
+            refresh = RefreshToken.for_user(self.user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+                'username': self.user.username,
+            })
+        return response
 
 # 2. Facebook Login View
 class FacebookLogin(SocialLoginView):

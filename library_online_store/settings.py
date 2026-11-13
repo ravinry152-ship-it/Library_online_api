@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     # Rest Auth Apps
     'dj_rest_auth',
     'dj_rest_auth.registration',
-
+    'cloudinary',
+    'cloudinary_storage',
     'storages',
 ]
 
@@ -134,10 +135,14 @@ DATABASES = {
 
 
 # # 2. Cloudinary Configuration (យក Credential ពី Cloudinary Dashboard ត្រង់ API Keys)
+CLOUDINARY_CLOUD_NAME = os.getenv("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.getenv("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
+
 cloudinary.config(
-    cloud_name=os.getenv("cloud_name")  ,  #'bayebfvc' យោងតាម Dashboard របស់អ្នក
-    api_key= os.getenv("API_KEY"), 
-    api_secret=os.getenv("API_SECRET"),
+    cloud_name=CLOUDINARY_CLOUD_NAME,
+    api_key=CLOUDINARY_API_KEY,
+    api_secret=CLOUDINARY_API_SECRET,
     secure=True
 )
 

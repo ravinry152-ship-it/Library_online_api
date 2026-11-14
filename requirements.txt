@@ -20,4 +20,7 @@ django-supabase-storage>=0.1.2
 django-storages[boto3]>=1.14
 cloudinary==1.41.0
 django-cloudinary-storage
+django-storages[boto3]
+django-redis 
+redis
 # pip install -r requirements.txt

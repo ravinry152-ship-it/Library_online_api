@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 
+
 class BookCategory(models.Model) :
     id = models.AutoField(primary_key= True)
     book_category = models.CharField(max_length=100, db_index=True)
